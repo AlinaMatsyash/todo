@@ -33,6 +33,7 @@ class _LoginState extends State<Login> {
                   controller: _emailController,
                 ),
                 TextFormField(
+                  obscureText: true,
                   textAlign: TextAlign.center,
                   decoration: const InputDecoration(hintText: 'Password'),
                   controller: _passwordController,
@@ -48,7 +49,8 @@ class _LoginState extends State<Login> {
                       _emailController.clear();
                       _passwordController.clear();
                     } else {
-                      SnackBar(content: Text(retVal));
+                      ScaffoldMessenger.of(context)
+                          .showSnackBar(SnackBar(content: Text(retVal)));
                     }
                   },
                   child: const Text('Sign In'),
@@ -64,7 +66,8 @@ class _LoginState extends State<Login> {
                       _emailController.clear();
                       _passwordController.clear();
                     } else {
-                      SnackBar(content: Text(retVal));
+                      ScaffoldMessenger.of(context)
+                          .showSnackBar(SnackBar(content: Text(retVal)));
                     }
                   },
                   child: const Text('Create Account'),

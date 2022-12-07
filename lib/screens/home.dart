@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:todo/services/auth.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key, required this.auth, required this.firestore})
@@ -20,7 +21,9 @@ class _HomeState extends State<Home> {
         title: const Text('Todo'),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Auth(auth: widget.auth).signOut();
+            },
             icon: const Icon(Icons.exit_to_app),
           ),
         ],
